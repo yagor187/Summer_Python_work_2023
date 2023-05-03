@@ -1,0 +1,9 @@
+n = int(input("Введите число -->"))
+s = []
+for i in range(n):
+    s.append(int(input("-->")))
+k = s[0]
+for i in range(n):
+    if s[i] < k:
+        k = s[i]
+print(k)
