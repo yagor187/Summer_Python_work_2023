@@ -1,0 +1,11 @@
+avg = []
+while True:
+    count = input("-->")
+    if count not in "0123456789""":
+        print("Введите число")
+    else:
+        if count in "0":
+            break
+        else:
+            avg.append(int(count))
+print(f"средняя зарплата - {sum(avg)/len(avg)}")
