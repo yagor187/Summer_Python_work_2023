@@ -8,3 +8,5 @@ while True:
             avg.append(int(count))
     else:
         print("Введите число")
+      
+print(f"средняя зарплата - {sum(avg)/len(avg)}")
