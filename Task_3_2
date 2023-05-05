@@ -1,0 +1,7 @@
+n = 11222333344455
+s = ""
+while n > 0:
+    s = s + (str(n % 10))
+    n = n // 10
+for i in range(10):
+    print(i, " - ", s.count(str(i)))
