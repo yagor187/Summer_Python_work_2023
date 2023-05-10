@@ -1,0 +1,17 @@
+d = {}
+c = ',;:1234567890-" ".'
+for i in range(2):
+    s = "".join(sorted(input("Введите предложение")))
+    s = s.lower()
+    for i in s:
+        if i in c:
+            s = s.replace(i, '')
+    if s not in d:
+        d[s] = 1
+    else:
+        d[s] += 1
+print(d)
+if len(d) == 1:
+    print(True)
+else:
+    print(False)
