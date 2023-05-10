@@ -1,0 +1,13 @@
+s = input("-->").split(" ")
+lst = []
+for i in range(len(s)):
+    if s[i] not in "+-*/":
+        lst.append(int(s[i]))
+    else:
+        lst.append(s[i])
+d = { "+": lst[0] + lst[2],
+"-": lst[0] - lst[2],
+"/": lst[0] / lst[2],
+"*": lst[0] * lst[2]
+}
+print(d[s[1]])
