@@ -1,0 +1,29 @@
+# Не могу понять почему 1917 не переводит, символы удаляются, но почему-то онизаписываются в i
+def convert(s):
+    d = {'M': 1000, 'D': 500, 'C': 100, 'L': 50, 'X': 10, 'V': 5, 'I': 1, "DC": 800,"XL": 40,"CD": 400,"XC": 90,"IX": 9,"IV": 4}
+    f = 0
+    for i in s:
+        if i in d:
+            elif s.startswith('IV'):
+                f += 4
+                s = s.replace("I", "", 1)
+                s = s.replace("V", "", 1)
+            elif s.startswith('IX'):
+                f += 9
+                s = s.replace("I", "", 1)
+                s = s.replace("X", "", 1)
+            elif s.startswith('CM'):
+                f += 900
+                s = s.replace("C", "", 1)
+                s = s.replace("M", "", 1)
+            else:
+                f += d[i]
+                s = s.replace(i, "", 1)
+            if s in "":
+                break
+    return f
+while True:
+    c = input("-->")
+    if c in "0":
+        break
+    print(convert(c))
