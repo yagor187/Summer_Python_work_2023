@@ -4,7 +4,7 @@ def convert(s):
     f = 0
     for i in s:
         if i in d:
-            elif s.startswith('IV'):
+            if s.startswith('IV'):
                 f += 4
                 s = s.replace("I", "", 1)
                 s = s.replace("V", "", 1)
