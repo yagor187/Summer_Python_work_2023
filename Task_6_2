@@ -1,4 +1,4 @@
-s1 = set(input("--> 1:").split(","))
-s2 = set(input("--> 2:").split(","))
-z = z = s1.intersection(s2)
+s1 = set(input("--> 1:").split(", "))
+s2 = set(input("--> 2:").split(", "))
+z = s1.intersection(s2)
 print(len(z))
