@@ -1,0 +1,14 @@
+s = input("-->")
+a = set()
+b = set()
+c = set()
+for i in s:
+    if i.isalpha() == True:
+        a = a | set(i)
+    if i.isdigit() == True:
+        b = b | set(i)
+    if (i.isalpha() or i.isdigit()) == False:
+        c = c | set(i)
+print("цифры - ", *a)
+print("числа - " ,*b)
+print("все остальное - " ,*c)
