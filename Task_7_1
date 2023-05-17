@@ -1,0 +1,11 @@
+from math import gcd
+from functools import reduce
+lst = []
+n = int(input("-->"))
+for i in range(n):
+    lst.append(int(input("-->")))
+n = 1
+for i in lst:
+    n *= i
+nod = reduce(gcd, lst)
+print(n / nod)
