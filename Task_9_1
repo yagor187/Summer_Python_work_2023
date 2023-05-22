@@ -1,0 +1,9 @@
+s = "GGCTAT"
+def rnk_create(s):
+    s = s.upper()
+    rnk = ""
+    for i in s:
+        d = {"G": i.replace("G", "C"),  "C": i.replace("C", "G"), "T": i.replace("T", "A"), "A": i.replace("A", "T")}
+        rnk += d[i]
+    return rnk
+print(rnk_create(s))
