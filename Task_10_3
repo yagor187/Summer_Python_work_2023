@@ -1,0 +1,59 @@
+import statistics
+import openpyxl
+from openpyxl import Workbook
+wb = Workbook()
+wb.save('file3.xlsx') # создание файла
+wb.create_sheet("2sheet") # создание нового листа
+ws = wb.active
+ws["A1"].value = "Иванов" # запись в ячейку
+ws["A2"].value = "Петров"
+ws["A3"].value = "Сидоров"
+ws["A4"].value = "Зуев"
+ws["B1"].value = 100
+ws["B2"].value = 200
+ws["B3"].value = 300
+ws["B4"].value = 500
+wb.save('file.xlsx') # сохранение
+def avg(d):
+    sum = 0
+    for k, v in d.items():
+        sum += v
+    return sum / len(d)
+def med(d):
+    lst = []
+    for k, v in d.items():
+        lst.append(v)
+    return lst
+lst = []
+for i in range(ws.max_row): # чтение с таблицы в список
+    for j in range(ws.max_column):
+        lst.append(ws.cell(row = i + 1, column = j + 1).value)
+d = {}
+h = 0
+while h < len(lst): # добавление списка в словарь
+    if lst[h] in d:
+        d[lst[h]] += lst[h + 1]
+    else:
+        d[lst[h]] = lst[h + 1]
+    h += 2
+
+wb.active = wb["2sheet"]
+ws = wb.active
+ws["A1"].value = "Минимальное значение" # запись в ячейку
+ws["A2"].value = "Максимальное значение"
+ws["A3"].value = "Среднее арифметическое"
+ws["A4"].value = "Медиана (серединное значение)"
+k = avg(d)
+li =  med(d)
+ws["B1"].value = min(d.items(), key=lambda x: x[1])[1]
+ws["B2"].value = max(d.items(), key=lambda x: x[1])[1]
+ws["B3"].value = k
+ws["B4"].value = statistics.median(li)
+wb.save('file3.xlsx') # сохранение
+
+
+
+
+
+
+
