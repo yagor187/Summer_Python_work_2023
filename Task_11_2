@@ -1,0 +1,62 @@
+import csv
+import openpyxl
+from openpyxl import Workbook
+columns = ["Number", 	"SecondName",	"FirstName",	"Company",	"Salary"]
+data = [["1",	"Ivanov", 	"Ivan", 	"MTS",	"10"],
+        ["2",	"Sidorov",	"Georg",	"Beeline",	"200"],
+        ["3",	"Zyev",	"Nikita",	"Tele2",	"300"],
+        ["4",	"Petrov",	"Alex",	"Megafon",	"400"],
+        ["5",	"Pythonov",	"Petr",	"Rostelecom",	"500"]]
+with open("test1.csv", "w", encoding="utf-8", newline = "") as file:
+        writer = csv.writer(file)
+        writer.writerow(columns)
+        for row in data:
+            writer.writerow(row)
+wb = Workbook()
+wb.save("test1.xlsx")
+ws = wb.active
+
+with open ("test1.csv", "r", encoding ="utf-8") as file:
+    rows = csv.reader(file)
+    lst = []
+    for row in rows:
+        lst.append(row)
+colum = lst.pop(0)
+print(colum)
+lst = sorted(lst, key = lambda x: (x[3], x[1], x[2]))
+print(lst[:])
+su = 0
+for i in lst:
+    su += int(i[4])
+print(su)
+
+i = 1
+for k in colum:
+    ws.cell(1, i).value = k
+    i += 1
+i = 2
+for p in lst:
+    j = 1
+    for z in p:
+        ws.cell(i, j).value = z
+        j += 1
+    i += 1
+ws.cell(ws.max_row + 1, ws.max_column).value = su
+ws.cell(ws.max_row, ws.max_column - 1).value = "Итого"
+wb.save("test1.xlsx")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
