@@ -8,6 +8,6 @@ def g(lst):
 gen = g(lst)
 try:
     for _ in range(len(lst)):
-        print(next(gen))
+        print(next(gen), end = " ")
 except IndexError:
     print("Конец списка")
