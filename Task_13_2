@@ -1,0 +1,13 @@
+lst = [str(i) for i in range(20000)]
+def g(lst):
+    i = 0
+    while True:
+        if lst[i] == lst[i][::-1]: yield int(lst[i])
+        i += 1
+    
+gen = g(lst)
+try:
+    for _ in range(len(lst)):
+        print(next(gen))
+except IndexError:
+    print("Конец списка")
