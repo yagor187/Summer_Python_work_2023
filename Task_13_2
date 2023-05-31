@@ -1,13 +1,12 @@
-lst = [str(i) for i in range(1, 20000)]
-def g(lst):
-    i = 0
+def g():
+    i = 1
     while True:
-        if lst[i] == lst[i][::-1]: yield int(lst[i])
+        if str(i)[:] == str(i)[::-1]: yield int(i)
         i += 1
     
-gen = g(lst)
-try:
-    for _ in range(len(lst)):
-        print(next(gen), end = " ")
-except IndexError:
-    print("Конец списка")
+gen = g()
+while True: # Бесконечный генератор, ничем не ограничен 
+    print(next(gen), end = ", ")
+    input()
+# for i in range(int(input("-->"))): # Бесконечный генератор, ограничен введенным  числом
+#     print(next(gen), end = ", ")
