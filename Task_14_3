@@ -1,18 +1,10 @@
 def f1(n):
-    if n == 1:
+    if n == 0:
         return ""
     else:
         print(n * "*")
         f1(n - 1)
-        return "*"
-        
-def f2(n):
-    if n == 1:
-        return ""
-    else:
-        f2(n - 1)
         print(n * "*")
         return ""
-n = 5        
+n = 4
 print(f1(n))
-print(f2(n))
