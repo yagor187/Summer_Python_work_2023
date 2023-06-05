@@ -1,0 +1,4 @@
+import re
+string = 'Р070TK178 Т461НЕ14 О992ВН197 Г014РО14'
+regex = r"\b[А,В,Е,К,М,Н,О,Р,С,Т,У,Х,A,B,E,K,M,H,O,P,C,T,X]\d{3}[А,В,Е,К,М,Н,О,Р,С,Т,У,Х,A,B,E,K,M,H,O,P,C,T,X]{2}\d{2,3}\b"
+print(re.findall(regex, string))
