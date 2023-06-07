@@ -1,0 +1,10 @@
+def first(func):
+    def wrapper():
+        original = func()
+        mod = original.title()
+        return mod
+    return wrapper
+@ first
+def h():
+    return "HEllo "
+print(h())
