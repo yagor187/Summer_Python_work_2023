@@ -1,0 +1,21 @@
+class Shape:
+    def __init__(self, color, square):
+        self.color = color
+        self.square = square
+    def info(self):
+        print(f"цвет - {self.color}; площадь - {self.square}")
+    def set_color(self):
+        self.color = input("Цвет --> ")
+    def request_color(self):
+        print(f"цвет - {self.color}")
+    def set_square(self):
+        self.square = int(input("Площадь -->"))
+    def request_square(self):
+        print(f"площадь - {self.square}")
+
+a = Shape("Red", 20)
+a.set_color()
+a.request_color()
+a.set_square()
+a.request_color()
+a.info()
