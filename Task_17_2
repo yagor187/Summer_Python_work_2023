@@ -1,0 +1,12 @@
+def deco(func):
+    def wrapper(*args, **kwargs):
+        print("Вызов функции:", func.__name__)
+        result = func(*args, **kwargs)
+        list = result.upper().split()
+        return list
+    return wrapper
+@deco
+def create_to_list():
+    s = input("-->")
+    return s
+print(create_to_list())
