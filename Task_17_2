@@ -4,12 +4,20 @@ def deco(func):
         result = func(*args, **kwargs)
         list = []
         for i in result:
-            list.append(i.upper())
+            if type(i) == dict:
+                for k, v in i.items():
+                    if type(k) == str:
+                        list.append(k.upper())
+                    if type(v) == str:
+                        list.append(v.upper())
+            elif type(i) == str:
+                list.append(i.upper())
         return list
     return wrapper
 @deco
 def create_to_list():
     s = "Привет"
     w = "Мир"
-    return s, w
+    d = {1:"!"}
+    return s, w, d
 print(create_to_list())
