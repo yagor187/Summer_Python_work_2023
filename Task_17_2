@@ -2,11 +2,14 @@ def deco(func):
     def wrapper(*args, **kwargs):
         print("Вызов функции:", func.__name__)
         result = func(*args, **kwargs)
-        list = result.upper().split()
+        list = []
+        for i in result:
+            list.append(i.upper())
         return list
     return wrapper
 @deco
 def create_to_list():
-    s = input("-->")
-    return s
+    s = "Привет"
+    w = "Мир"
+    return s, w
 print(create_to_list())
