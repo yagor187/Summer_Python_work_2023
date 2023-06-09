@@ -1,23 +1,18 @@
 def deco(func):
     def wrapper(*args, **kwargs):
         print("Вызов функции:", func.__name__)
-        result = func(*args, **kwargs)
-        list = []
-        for i in result:
-            if type(i) == dict:
-                for k, v in i.items():
-                    if type(k) == str:
-                        list.append(k.upper())
-                    if type(v) == str:
-                        list.append(v.upper())
-            elif type(i) == str:
-                list.append(i.upper())
-        return list
+        func(*args, **kwargs)
+        lst = []
+        for v in kwargs.values():
+
+            if type(v) == str:
+                lst.append(v.upper())
+        for i in args:
+            if type(i) == str:
+                lst.append(i.upper())
+        return lst
     return wrapper
 @deco
-def create_to_list():
-    s = "Привет"
-    w = "Мир"
-    d = {1:"!"}
-    return s, w, d
-print(create_to_list())
+def create_to_list(*args, **kwargs):
+    pass
+print(create_to_list('Первый', 'Второй', 3, 4, fifth = 'Пятый', six = 6))
