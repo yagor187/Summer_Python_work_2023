@@ -1,0 +1,14 @@
+import itertools
+money = [50, 100, 200, 500, 1000, 5000]
+x = []
+for i in itertools.permutations([1,1,1,1,1,1,0,0,0,0,0,0], 6 ):
+    x.append(i)
+x = list(set(x))
+for i in range(len(x)):
+    sum = 0
+    res = []
+    for j in range(len(x[i])):
+        if x[i][j] * money[j] != 0:
+            res.append(x[i][j] * money[j])
+        sum += x[i][j] * money[j] 
+    print(" + ".join(str(i) for i in res)," = ", sum)
