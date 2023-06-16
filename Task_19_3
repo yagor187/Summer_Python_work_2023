@@ -1,1 +1,9 @@
+class Person:
+    def __init__(self, *args):
+        self.args = args
+        self.str = "".join(args)
+    def __str__(self):
+        return f"{self.str[::-1]}"
 
+p = Person("Иванов", "Михаил", "Федорович")
+print(p)
