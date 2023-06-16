@@ -1,0 +1,18 @@
+class Fib:
+    def __init__(self):
+        self.a = 1
+        self.b = 0
+        self.c = 0
+    def __iter__(self):
+        return self
+        
+    def __next__(self):
+        self.c = self.a + self.b 
+        self.a = self.b
+        self.b = self.c 
+        return self.b
+
+f = Fib()
+for i in f:
+    print(i)
+    input()
