@@ -1,0 +1,26 @@
+class Words:
+    def __init__(self):
+        self.index = 0
+        self.index_word = ord("A") - 1
+        
+    def __iter__(self):
+        return self
+        
+    def __next__(self):
+        if self.index == 26:
+            self.index = 0
+        self.index += 1
+        
+        self.index_word += 1
+        if self.index_word > ord("Z"):
+            self.index_word -= 26
+        self.word = chr(self.index_word)
+
+        return f"{self.word}, {self.index}"
+
+f = Words()
+for i in f:
+    print(i, end = "")
+    input()
+        
+        
