@@ -1,0 +1,15 @@
+import pandas as pd
+import numpy as np
+df1 = pd.DataFrame([[1,'Bob', 'Builder'],
+                    [2.3,'Sally', 'Baker'],
+                    [3,'Scott', 'Candle Stick Maker']],
+        columns=['id','name', 'occupation'])
+
+def f(df):
+    sum1 = 0
+    for i in df.index:
+        for j in df.columns:
+            if type(df.loc[i,j]) == np.float64 or type(df.loc[i,j]) == np.int64:
+                sum1 += df.loc[i,j]
+    return sum1
+print(f(df1))
