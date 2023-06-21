@@ -1,0 +1,9 @@
+create table Pupil (id int,
+					name text,
+					tasks text,
+					hw bool,
+					pay_all bool,
+					pay_1 bool,
+					pay_2 bool, 
+					rating int
+				   )
