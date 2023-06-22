@@ -1,0 +1,73 @@
+import time
+class Shop:
+    nam = []
+    def __init__(self):
+        self.name = "Shop"
+        Shop.nam.append(self)
+    def cat(self):
+        self.pos = 0
+        self.col = 0
+        self.count = 0
+        self.price = 0
+        self.menu = {1: "Стол",
+                     2: "Стул",
+                     3: "Шкаф",
+                     4: "Тумба"}
+        self.color = {1: "Черный",
+                      2: "Белый"}
+        self.pri = {"Стол":150,
+                    "Стул":100,
+                    "Шкаф":300,
+                    "Тумба":70}
+        for k, v in self.menu.items():
+            print(f"Наименование - {k}; Позиция {v}")
+
+        self.pos = self.menu[int(input("Введите цифру позиции "))]
+        for k, v in self.color.items():
+            print(f"Цвет - {k}; Позиция {v}")
+        self.col = self.color[int(input("Введите цифру позиции "))]
+        self.count = int(input("Введите количество "))
+        self.lst = [self.pos, self.col, self.count * self.pri[self.pos]]
+        return self.lst
+class Customer:
+    nam = []
+    count = 0
+    def __init__(self):
+        self.name = input("Введите имя: ")
+        self.number = input("Введите номер: ")
+        Customer.count += 1
+    def busk(self):
+        self.my_lst = []
+        self.my_lst.extend(Shop.nam[0].cat())
+        print(self.my_lst)
+
+    def order(self):
+        self.ord = { "ЗАКАЗ": Customer.count,
+                     "Имя": self.name,
+                     "Телефон": self.number,
+                     "Время заказа": time.ctime(),
+                     "Наименование": self.my_lst[0],
+                     "Цвет": self.my_lst[1],
+                     "Итоговая цена": self.my_lst[2]
+        }
+        Customer.nam.append(self.ord)
+        for k, v in self.ord.items():
+            print(f"{k}:{v}")
+
+
+while True:
+    k = input("Желаете продолжить? Если да - введите да, если нет введите нет")
+    if k in "да":
+        s = Shop()
+        a = Customer()
+        a.busk()
+        a.order()
+    else:
+        break
+MyFile = open('orders.txt', 'w', encoding='utf8')
+for i in Customer.nam:
+    for k, v in i.items():
+        MyFile.write(str(k))
+        MyFile.write(str(v))
+        MyFile.write('\n')
+MyFile.close()
