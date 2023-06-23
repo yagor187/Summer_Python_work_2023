@@ -1,0 +1,18 @@
+import keyword
+import re
+lst = keyword.kwlist
+s = "text True False hello world Good morning"
+for i in s:
+    if i.isalpha():
+        pass
+    else:
+        s = s.replace(i, " ")
+print(s)
+        
+s = s.split()
+print(s)
+for i in range(len(s)):
+    for j in range(len(lst)):
+        if s[i] in lst[j]:
+            s[i] = "<kw>"
+print(" ".join(s))
