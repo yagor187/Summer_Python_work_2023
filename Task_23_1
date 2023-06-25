@@ -1,0 +1,15 @@
+def expand(s, l, r, lst):
+    while (l >= 0 and r < len(s) and s[r] == s[l]):
+        lst.append(s[l:r + 1])
+        l -= 1
+        r += 1
+def find(s):
+    lst = []
+    for i in range(len(s)):
+        expand(s, i, i, lst)
+        expand(s, i, i + 1, lst)
+    print(max(set(lst)))
+
+
+s = 'abcabcfjhghgkjjjjjkklllllllabdc'
+find(s)
