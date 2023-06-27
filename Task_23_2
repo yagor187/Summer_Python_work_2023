@@ -1,0 +1,26 @@
+import psycopg2
+import pandas as pd
+import matplotlib.pyplot as plt
+
+con = psycopg2.connect(
+database="postgres",
+user="postgres",
+password= input("Введите Ваш пароль"),
+host="127.0.0.1",
+port="5432"
+)
+
+cur = con.cursor()
+
+cur.execute("SELECT id, title, author, price, amount from book1")
+rows = cur.fetchall()
+lst = []
+for i in rows:
+    lst.append(i)
+cur.close()
+table = pd.DataFrame(lst)
+table.columns = ['Позиция', 'Произведение', 'Автор', "Цена", "Кол-во"]
+print(table)
+plt.plot(table['Автор'], table['Цена'])
+plt.plot(table['Автор'], table['Кол-во'])
+plt.show()
