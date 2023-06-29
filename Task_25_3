@@ -1,0 +1,4 @@
+def f(s):
+    return (s.title()).replace(" ", "")
+
+print(f("hello world!"))
