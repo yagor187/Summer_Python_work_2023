@@ -1,0 +1,24 @@
+s = "avbc"
+d = "avb"
+
+def fu(s, d):
+    len1 = 0 
+    count = 0
+    if s.isalpha() == False or d.isalpha() == False: return False
+    if abs(len(s) - len(d)) > 1: return False
+        
+        
+    if len(d) > len(s):
+        len1 = len(s)
+    else:
+        len1 = len(d)
+        
+    for i in range(len1):
+        if s[i] != d[i]:
+            count += 1 
+    if count > 1:
+        return False
+    else:
+        return True
+        
+print(fu(s, d))
