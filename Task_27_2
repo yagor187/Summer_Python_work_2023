@@ -1,0 +1,14 @@
+class Item: # Не уверен, что правильно Вас понял 
+    name = "apple"
+    price = 100
+    q = 3
+    def __str__(self):
+        return f"Имя: {self.name.title()}"
+
+
+    def total(self):
+        return self.price * self.q
+
+a = Item()
+print(a)
+print(a.total())
