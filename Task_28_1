@@ -1,0 +1,11 @@
+def inversion(lst):
+    count = 0
+    for i in range(len(lst)):
+        for j in range(i, len(lst)):
+            if lst[i] > lst[j]:
+                count += 1
+    return count 
+
+
+lst = [5, 4, 3, 2, 1]  
+print(inversion(lst))
