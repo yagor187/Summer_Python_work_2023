@@ -1,0 +1,9 @@
+
+def han(n, start = 1, finish = 3):
+    if n <= 0: return 0
+    temp = 6 - start - finish
+    han(n - 1, start, temp)
+    print("перенести диск", n,  "со стержня", start,"на стержень", finish)
+    han(n - 1, temp, finish)
+    return f"Количество перестановок {2 ** n - 1}"
+print(han(3))
