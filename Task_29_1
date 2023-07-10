@@ -1,0 +1,8 @@
+lst = [1, 2, 1, 1, 1, 1, 1]
+d = {}
+for j in lst:
+    d[j] = d.get(j, 0) + 1
+print(d)
+for k, v in d.items():
+    if v == 1:
+        print(k)
